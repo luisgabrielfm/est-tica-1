@@ -107,3 +107,29 @@ dialog.addEventListener('close', () => {
   if (lastTrigger?.isConnected) lastTrigger.focus();
 });
 
+// Carrossel de pares: troca o slide completo para nunca separar antes/depois.
+const comparisonCarousel = document.querySelector('[data-static-carousel]');
+if (comparisonCarousel) {
+  const slides = [...comparisonCarousel.querySelectorAll('[data-case-index]')];
+  const counter = comparisonCarousel.querySelector('.comparison-count');
+  let currentCase = 0;
+  function changeCase(direction) {
+    currentCase = (currentCase + direction + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const active = index === currentCase;
+      slide.hidden = !active;
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+    counter.textContent = `Simulação ${currentCase + 1} de ${slides.length}`;
+  }
+  comparisonCarousel.querySelectorAll('[data-case-direction]').forEach(button => {
+    button.addEventListener('click', () => changeCase(Number(button.dataset.caseDirection)));
+  });
+  comparisonCarousel.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      changeCase(event.key === 'ArrowRight' ? 1 : -1);
+    }
+  });
+}
+

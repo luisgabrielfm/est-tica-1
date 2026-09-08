@@ -211,6 +211,42 @@ footer>.fineprint{max-width:none}
 }
 
 
+/* Comparações: um par completo por slide, sem reprodução automática. */
+.results.comparison-section{display:block;margin-top:55px;padding-top:40px}
+.comparison-heading{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-bottom:24px}
+.comparison-heading h3{font-size:32px;margin:0 0 12px}
+.simulation-badge{background:#e5dcf6;border:0;white-space:nowrap}
+.comparison-carousel{position:relative}
+.comparison-carousel [data-slot="carousel-content"]{overflow:hidden;border-radius:20px}
+.comparison-track{display:flex;margin:0}
+.comparison-slide{flex:0 0 100%;min-width:0;padding:0}
+.comparison-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.comparison-frame{margin:0;position:relative;overflow:hidden;border-radius:19px;background:#e4dfdb}
+.comparison-crop{position:relative;aspect-ratio:1;overflow:hidden}
+.comparison-crop img{position:absolute;max-width:none;width:200%;height:100%;left:0;top:0;object-fit:fill}
+.comparison-after img{left:-100%}
+.comparison-frame figcaption{position:absolute;left:15px;right:15px;bottom:15px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 17px;background:#fffdf9ed;border-radius:12px;font-size:18px;font-weight:700}
+.comparison-frame figcaption span{font-size:12px;font-weight:400}
+.comparison-controls{display:flex;align-items:center;justify-content:space-between;margin-top:18px;gap:20px}
+.results .comparison-count{font-size:14px;color:#27352d}
+.comparison-arrows{display:flex;gap:10px}
+.comparison-carousel .comparison-arrow{position:static;inset:auto;transform:none;margin:0;width:46px;height:46px;border:1px solid #27352d;border-radius:50%;background:#fffdf9;color:#27352d;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.comparison-carousel .comparison-arrow:hover{background:#d6f2b8}
+.comparison-arrow:disabled{opacity:.4}
+.results .comparison-disclaimer{font-size:13px;line-height:1.7;margin-top:20px;max-width:85ch}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:600px){.comparison-heading{display:block}
+.comparison-heading h3{font-size:27px}
+.simulation-badge{margin-top:15px;font-size:12px}
+.comparison-pair{gap:8px}
+.comparison-frame{border-radius:13px}
+.comparison-frame figcaption{left:6px;right:6px;bottom:6px;padding:7px 10px;font-size:15px;flex-wrap:wrap;gap:0 7px}
+.comparison-frame figcaption span{font-size:11px}
+.comparison-controls{margin-top:14px}
+.results.comparison-section{margin-top:35px;padding-top:28px}
+}
+
+
 /* Controles HTML nativos */
 [hidden]{display:none!important}
 svg{vertical-align:middle;flex-shrink:0}
